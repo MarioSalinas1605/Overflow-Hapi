@@ -1,0 +1,29 @@
+{
+  "name": "hapi-overflow",
+  "version": "1.0.0",
+  "description": "Site like StackOverflow",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "lint": "standard",
+    "lint-fix": "standard --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarioSalinas1605/hapi-overflow.git"
+  },
+  "author": "Mario Salinas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarioSalinas1605/hapi-overflow/issues"
+  },
+  "homepage": "https://github.com/MarioSalinas1605/hapi-overflow#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "hapi": "^17.8.1"
+  }
+}
