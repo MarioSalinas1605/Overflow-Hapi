@@ -25,9 +25,13 @@ function login (req, h) {
     user: req.state.user
   })
 }
+function notFound(req, h){
+  return h.view('404', null, {layout: 'error-layout'}).code(404)
+}
 
 module.exports = {
   home: home,
   register: register,
+  notFound: notFound,
   login: login
 }
