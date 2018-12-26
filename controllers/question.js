@@ -18,6 +18,8 @@ async function createQuestion(req, h){
   return h.response(`Pregunta creada con el ID: ${result}`);
 }
 
+
+
 module.exports = {
   createQuestion: createQuestion
 }
