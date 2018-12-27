@@ -1,7 +1,8 @@
 'use strict'
+
+const Joi = require('joi')
 const site = require('./controllers/site')
 const user = require('./controllers/user')
-const Joi = require('joi')
 const question = require('./controllers/question')
 
 module.exports = [
@@ -16,9 +17,9 @@ module.exports = [
     handler: site.register
   },
   {
-    method: 'POST',
     path: '/create-user',
-    options:{
+    method: 'POST',
+    options: {
       validate: {
         payload: {
           name: Joi.string().required().min(3),
@@ -51,9 +52,9 @@ module.exports = [
     handler: site.ask
   },
   {
-    method: 'POST',
     path: '/validate-user',
-    options:{
+    method: 'POST',
+    options: {
       validate: {
         payload: {
           email: Joi.string().email().required(),
@@ -65,9 +66,9 @@ module.exports = [
     handler: user.validateUser
   },
   {
-    method: 'POST',
     path: '/create-question',
-    options:{
+    method: 'POST',
+    options: {
       validate: {
         payload: {
           title: Joi.string().required(),
@@ -79,9 +80,9 @@ module.exports = [
     handler: question.createQuestion
   },
   {
-    method: 'POST',
     path: '/answer-question',
-    options:{
+    method: 'POST',
+    options: {
       validate: {
         payload: {
           answer: Joi.string().required(),
@@ -94,9 +95,14 @@ module.exports = [
   },
   {
     method: 'GET',
+    path: '/answer/{questionId}/{answerId}',
+    handler: question.setAnswerRight
+  },
+  {
+    method: 'GET',
     path: '/assets/{param*}',
     handler: {
-      directory:{
+      directory: {
         path: '.',
         index: ['index.html']
       }

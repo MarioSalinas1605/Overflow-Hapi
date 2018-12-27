@@ -1,14 +1,13 @@
 'use strict'
 
 const Hapi = require('hapi')
-const handlebars = require('./lib/helpers')
+const handlerbars = require('./lib/helpers')
 const inert = require('inert')
-const methods require('./lib/methods')
+const methods = require('./lib/methods')
 const path = require('path')
 const routes = require('./routes')
-const vision = require('vision')
 const site = require('./controllers/site')
-
+const vision = require('vision')
 
 const server = Hapi.server({
   port: process.env.PORT || 3000,
@@ -34,14 +33,13 @@ async function init () {
     })
 
     server.views({
-      engines:{
-        hbs: handlebars
+      engines: {
+        hbs: handlerbars
       },
       relativeTo: __dirname,
       path: 'views',
       layout: true,
-      layoutPath: 'views',
-
+      layoutPath: 'views'
     })
 
     server.ext('onPreResponse', site.fileNotFound)
@@ -56,11 +54,12 @@ async function init () {
   console.log(`Servidor lanzado en: ${server.info.uri}`)
 }
 
-process.on('unhandledRejection', error=>{
-  console.error('UnhandledRejection ', error.message, error);
+process.on('unhandledRejection', error => {
+  console.error('UnhandledRejection', error.message, error)
 })
-process.on('unhandledException', error=>{
-  console.error('UnhandledException', error.message, error);
+
+process.on('unhandledException', error => {
+  console.error('unhandledException', error.message, error)
 })
 
 init()
