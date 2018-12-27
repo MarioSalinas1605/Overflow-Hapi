@@ -1,17 +1,13 @@
 'use strict'
 
 const Hapi = require('hapi')
-const handlerbars = require('handlebars')
+const handlebars = require('./lib/helpers')
 const inert = require('inert')
 const path = require('path')
 const routes = require('./routes')
 const vision = require('vision')
 const site = require('./controllers/site')
 
-handlerbars.registerHelper('answerNumber', (answers)=>{
-  const keys = Object.keys(answers)
-  return keys.length
-})
 
 const server = Hapi.server({
   port: process.env.PORT || 3000,
@@ -36,7 +32,7 @@ async function init () {
 
     server.views({
       engines:{
-        hbs: handlerbars
+        hbs: handlebars
       },
       relativeTo: __dirname,
       path: 'views',
