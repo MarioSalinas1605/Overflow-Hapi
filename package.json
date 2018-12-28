@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "bcrypt": "^3.0.3",
+    "blankie": "^4.1.0",
     "boom": "^7.3.0",
     "crumb": "^7.2.3",
     "firebase-admin": "^6.4.0",
@@ -35,6 +36,7 @@
     "hapi-auth-basic": "^5.0.0",
     "inert": "^5.1.2",
     "joi": "^14.3.0",
+    "scooter": "^5.0.1",
     "uuid": "^3.3.2",
     "vision": "^5.4.4"
   }
